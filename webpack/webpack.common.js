@@ -22,15 +22,7 @@ module.exports = {
         test: /\.s[ac]ss$/,
         use: [
           'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[path][name]__[local]' // '[hash:base64:5]'
-                // localIdentName: '[hash:base64:5]'
-              }
-            }
-          },
+          'css-loader',
           'sass-loader'
         ]
       }

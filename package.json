@@ -10,8 +10,7 @@
     "clean": "rm -r ./build",
     "commit": "npm-run-all -s lint git-cz",
     "git-cz": "npx git-cz",
-    "lint": "standard --verbose | snazzy",
-    "lint:fix": "standard --fix"
+    "lint": "standard --fix --verbose | snazzy"
   },
   "keywords": [],
   "author": "",
@@ -47,11 +46,13 @@
     "webpack-visualizer-plugin": "^0.1.11"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "core-js": "^3.6.4",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.3.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-dropzone": "^10.2.2",
     "react-icons": "^3.9.0",
     "react-router-dom": "^5.1.2",
     "reset-css": "^5.0.1"
