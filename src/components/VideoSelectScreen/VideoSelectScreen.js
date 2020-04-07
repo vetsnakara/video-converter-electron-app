@@ -1,13 +1,19 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 import Dropzone from '../Dropzone'
+import Container from '../Container'
 
-const VideoSelectScreen = () => {
+const VideoSelectScreen = ({ history }) => {
   const handleSelect = selectedFiles => {
-    console.log('selectedFiles:', selectedFiles)
+    history.push('/convert')
   }
 
-  return <Dropzone onSelect={handleSelect} />
+  return (
+    <Container>
+      <Dropzone onSelect={handleSelect} />
+    </Container>
+  )
 }
 
-export default VideoSelectScreen
+export default withRouter(VideoSelectScreen)

@@ -1,0 +1,14 @@
+.converter {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  & > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__video-list {
+    flex-grow: 1;
+    overflow-y: hidden;
+  }
+}

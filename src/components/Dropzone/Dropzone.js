@@ -26,7 +26,7 @@ const Dropzone = ({ onSelect }) => {
       return <h4>Omnomnom, let me have those videos!</h4>
     }
 
-    return <h4>Drag and drop some files on me, or click to select.</h4>
+    return <h4>Drag and drop some files on me. <br />Or click to select.</h4>
   }, [isDragActive, isDragReject])
 
   return (

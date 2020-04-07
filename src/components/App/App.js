@@ -1,17 +1,20 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Container from '../Container'
 import VideoSelectScreen from '../VideoSelectScreen'
+import ConverterScreen from '../ConverterScreen'
+
+import './styles'
 
 const App = () => {
   return (
     <Router>
-      <Container>
+      <main className='app'>
         <Switch>
           <Route path='/' exact component={VideoSelectScreen} />
+          <Route path='/convert' component={ConverterScreen} />
         </Switch>
-      </Container>
+      </main>
     </Router>
 
   )
