@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 import { bem } from '../../utils'
 import './styles'
@@ -7,13 +8,23 @@ import Button from '../Button'
 
 const b = bem('control-panel')
 
-const ControlPanel = () => {
+const ControlPanel = ({
+  onConvert,
+  onCancel
+}) => {
+  const history = useHistory()
+
+  const handleCancel = () => {
+    onCancel()
+    history.push('/')
+  }
+
   return (
     <div className={b()}>
-      <Button>
+      <Button onClick={onConvert}>
         Convert
       </Button>
-      <Button>
+      <Button onClick={handleCancel}>
         Cancel
       </Button>
     </div>

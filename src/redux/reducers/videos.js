@@ -1,6 +1,7 @@
 import {
   ADD_VIDEOS,
-  REMOVE_VIDEO
+  REMOVE_VIDEO,
+  REMOVE_ALL_VIDEOS
 } from '../actions/videos'
 
 const initState = {}
@@ -20,9 +21,11 @@ const videosReducer = (state = initState, action) => {
       return Object.entries(state)
         .reduce((newState, [key, value]) =>
           key !== action.payload.path
-            ? { ...state, [key]: value }
-            : state,
+            ? { ...newState, [key]: value }
+            : newState,
         {})
+    case REMOVE_ALL_VIDEOS:
+      return initState
     default:
       return state
   }

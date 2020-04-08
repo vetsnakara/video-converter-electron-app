@@ -1,19 +1,13 @@
 import { connect } from 'react-redux'
 
 import {
-  fetchVideoInfo,
-  removeVideo
+  getVideoInfo
 } from '../../redux/actions'
 
 import ConverterScreen from './ConverterScreen'
 
-const mapState = state => ({
-  videos: Object.values(state.videos)
-})
-
 const mapDispatch = dispatch => ({
-  addVideos: videos => dispatch(fetchVideoInfo(videos)),
-  removeVideo: path => dispatch(removeVideo(path))
+  addVideos: videos => dispatch(getVideoInfo(videos))
 })
 
-export default connect(mapState, mapDispatch)(ConverterScreen)
+export default connect(null, mapDispatch)(ConverterScreen)

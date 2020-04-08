@@ -19,6 +19,10 @@ export const removeVideo = path => ({
   }
 })
 
-export const fetchVideoInfo = videos => dispatch => {
+export const removeAllVideos = () => ({
+  type: REMOVE_ALL_VIDEOS
+})
+
+export const getVideoInfo = videos => dispatch => {
   dispatch(addVideos(videos))
 }

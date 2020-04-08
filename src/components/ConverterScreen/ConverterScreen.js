@@ -11,9 +11,7 @@ import './styles'
 const b = bem('converter')
 
 const ConverterScreen = ({
-  videos,
-  addVideos,
-  removeVideo
+  addVideos
 }) => {
   const handleSelect = selectedFiles => {
     const videos = selectedFiles.map(
@@ -29,10 +27,7 @@ const ConverterScreen = ({
           <Dropzone onSelect={handleSelect} />
         </section>
         <section className={b('video-list')}>
-          <VideoList
-            videos={videos}
-            onRemove={removeVideo}
-          />
+          <VideoList />
         </section>
         <section className={b('control-panel')}>
           <ControlPanel />
