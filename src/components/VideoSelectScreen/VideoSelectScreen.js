@@ -1,11 +1,21 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import Dropzone from '../Dropzone'
 import Container from '../Container'
 
-const VideoSelectScreen = ({ history }) => {
+const VideoSelectScreen = ({
+  addVideos
+}) => {
+  const history = useHistory()
+
   const handleSelect = selectedFiles => {
+    const videos = selectedFiles.map(
+      ({ name, path, size, type }) => ({ name, path, size, type })
+    )
+
+    addVideos(videos)
+
     history.push('/convert')
   }
 
@@ -16,4 +26,4 @@ const VideoSelectScreen = ({ history }) => {
   )
 }
 
-export default withRouter(VideoSelectScreen)
+export default VideoSelectScreen

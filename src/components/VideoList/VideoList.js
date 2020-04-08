@@ -7,16 +7,19 @@ import { bem } from '../../utils'
 
 const b = bem('video-list')
 
-const VideoList = () => {
+const VideoList = ({
+  videos,
+  onRemove
+}) => {
   return (
     <div className={b()}>
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
+      {videos.map(video => (
+        <Video
+          key={video.path}
+          info={video}
+          onRemove={() => onRemove(video.path)}
+        />
+      ))}
     </div>
   )
 }

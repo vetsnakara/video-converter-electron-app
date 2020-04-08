@@ -33,18 +33,22 @@ const Progress = ({
   )
 }
 
-const Video = () => {
+const Video = ({
+  info: { name, completed },
+  onRemove
+}) => {
   return (
     <div className={b()}>
-      <Progress completed={100} />
+      <Progress completed={completed} />
       <div className={b('icon')}>
         <IconButton
           component={CloseIcon}
           color='orangered'
+          onClick={onRemove}
         />
       </div>
       <div className={b('info')}>
-        <h4 className={b('title')}>Video title</h4>
+        <h4 className={b('title')}>{name}</h4>
         <p className={b('duration')}>Duration: 11:22:33</p>
       </div>
       <div className={b('controls')}>
