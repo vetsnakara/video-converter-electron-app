@@ -21,10 +21,16 @@ const ControlPanel = ({
 
   return (
     <div className={b()}>
-      <Button onClick={onConvert}>
+      <Button
+        color='#26a69a'
+        onClick={onConvert}
+      >
         Convert
       </Button>
-      <Button onClick={handleCancel}>
+      <Button
+        color='orangered'
+        onClick={handleCancel}
+      >
         Cancel
       </Button>
     </div>

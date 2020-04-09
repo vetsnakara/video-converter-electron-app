@@ -9,9 +9,18 @@ import { bem } from '../../utils'
 
 const b = bem('video')
 
+const VIDEO_FORMATS = [
+  { value: 'avi', option: 'AVI' },
+  { value: 'm4v', option: 'M4V raw MPEG-4' },
+  { value: 'mov', option: 'MOV / QuickTime' },
+  { value: 'mp4', option: 'MP4 / QuickTime' },
+  { value: 'mpeg', option: 'MPEG' },
+  { value: 'ogv', option: 'OGV' }
+]
+
 const Progress = ({
   completed = 0,
-  color = 'green'
+  color = '#26a69a'
 }) => {
   if (completed === 0) {
     return null
@@ -34,12 +43,17 @@ const Progress = ({
 }
 
 const Video = ({
-  info: { name, completed },
-  onRemove
+  info: { name, progress, convertTo },
+  onRemove,
+  setFormat
 }) => {
+  const handleSelectFormat = ({ target: { value: format } }) => {
+    setFormat(name, format)
+  }
+
   return (
     <div className={b()}>
-      <Progress completed={completed} />
+      <Progress completed={progress} />
       <div className={b('icon')}>
         <IconButton
           component={CloseIcon}
@@ -52,10 +66,19 @@ const Video = ({
         <p className={b('duration')}>Duration: 11:22:33</p>
       </div>
       <div className={b('controls')}>
-        <select className={b('formats')}>
-          <option>AVI</option>
-          <option>MPEG</option>
-          <option>AVC</option>
+        <select
+          className={b('formats')}
+          value={convertTo}
+          onChange={handleSelectFormat}
+        >
+          {VIDEO_FORMATS.map(format => (
+            <option
+              key={format.value}
+              value={format.value}
+            >
+              {format.option}
+            </option>
+          ))}
         </select>
       </div>
     </div>
