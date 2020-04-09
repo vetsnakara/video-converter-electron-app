@@ -1,8 +1,11 @@
+/* global alert */
+
 import React from 'react'
 import { FaTimes as CloseIcon } from 'react-icons/fa'
 import Color from 'color'
 
 import IconButton from '../IconButton'
+import Button from '../Button'
 
 import './styles'
 import { bem } from '../../utils'
@@ -19,31 +22,46 @@ const VIDEO_FORMATS = [
 ]
 
 const Progress = ({
-  completed = 0,
-  color = '#26a69a'
+  progress = 0,
+  completed,
+  color = '#26a69a',
+  compeleteElement
 }) => {
-  if (completed === 0) {
+  if (progress === 0) {
     return null
   }
 
-  const styles = {
-    width: `${completed}%`,
+  const percentage = `${progress}%`
+
+  const overlayStyles = {
+    width: percentage,
     backgroundColor: new Color(color).alpha(0.2).rgb().toString()
   }
 
   return (
-    <div className={b('progress')}>
+    <div className={b('progress-bar')}>
       <div
-        style={styles}
+        style={overlayStyles}
         className={b('progress-overlay')}
       />
-      <span className={b('progress-completed')}>{`${completed}%`}</span>
+      <span className={b('progress-status', { active: !completed })}>
+        {compeleteElement
+          ? progress < 100
+            ? percentage
+            : compeleteElement
+          : percentage}
+      </span>
     </div>
   )
 }
 
 const Video = ({
-  info: { name, progress, convertTo },
+  info: {
+    name,
+    progress,
+    convertTo,
+    completed
+  },
   onRemove,
   setFormat
 }) => {
@@ -53,18 +71,33 @@ const Video = ({
 
   return (
     <div className={b()}>
-      <Progress completed={progress} />
-      <div className={b('icon')}>
+      <Progress
+        progress={progress}
+        completed={completed}
+        compeleteElement={
+          <Button
+            color='#26a69a'
+            className={b('open-folder-btn')}
+            onClick={() => alert('Open folder on your computer')}
+          >
+            Open folder
+          </Button>
+        }
+      />
+
+      <div className={b('icon', { overlayed: completed })}>
         <IconButton
           component={CloseIcon}
           color='orangered'
           onClick={onRemove}
         />
       </div>
+
       <div className={b('info')}>
         <h4 className={b('title')}>{name}</h4>
         <p className={b('duration')}>Duration: 11:22:33</p>
       </div>
+
       <div className={b('controls')}>
         <select
           className={b('formats')}

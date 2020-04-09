@@ -4,7 +4,10 @@ import cn from 'classnames'
 
 import './styles'
 
-const Dropzone = ({ onSelect }) => {
+const Dropzone = ({
+  onSelect,
+  className
+}) => {
   const {
     getRootProps,
     getInputProps,
@@ -34,7 +37,8 @@ const Dropzone = ({ onSelect }) => {
       className: cn(
         'dropzone',
         { 'dropzone--active': isDragActive },
-        { 'dropzone--reject': isDragReject }
+        { 'dropzone--reject': isDragReject },
+        className
       )
     })}
     >

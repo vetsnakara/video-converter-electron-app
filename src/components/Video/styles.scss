@@ -2,12 +2,16 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
   border: 1px solid rgba(gray, 0.5);
   border-radius: 5px;
 
   &__icon {
     margin-right: 10px;
+
+    &--overlayed {
+      z-index: 2;
+    }
   }
 
   &__info {
@@ -25,31 +29,38 @@
     cursor: pointer;
   }
 
-  &__progress {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    font-size: 30px;
-    font-weight: bold;
+  &__open-folder-btn {
+    font-size: 14px;
+  }
 
-    &-completed {
+  &__progress {
+    &-bar {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      padding: 2px 6px;
-      transform: translate(-50%, -50%);
-      color: white;
-      background-color: rgba(gray, 0.8);
-      border: 1px solid gray;
-      border-radius: 3px;
-  
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      font-size: 30px;
+      font-weight: bold;
     }
 
     &-overlay {
       height: 100%;
-      color: #000;
     }
+
+    &-status {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  
+      &--active {
+        padding: 2px 6px;
+        color: white;
+        background-color: rgba(gray, 0.8);
+        border: 1px solid gray;
+        border-radius: 3px;  
+      }
+    }  
   }
 }

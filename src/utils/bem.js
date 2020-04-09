@@ -7,7 +7,7 @@ const bem = block => (element = null, mods = {}) => {
 
     // block modifiers
     for (const mod in mods) {
-      if (mod) {
+      if (mods[mod]) {
         classes.push(`${block}--${mod}`)
       }
     }
@@ -17,7 +17,7 @@ const bem = block => (element = null, mods = {}) => {
 
     // element modifiers
     for (const mod in mods) {
-      if (mod) {
+      if (mods[mod]) {
         classes.push(`${block}__${element}--${mod}`)
       }
     }

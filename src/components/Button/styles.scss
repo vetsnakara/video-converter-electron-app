@@ -6,7 +6,7 @@
   background-color: lightgray;
   color: #fff;
   text-transform: uppercase;
-  transition: all .2s ease-in-out;
+  transition: all .05s ease-in-out;
   outline: none;
 
   &--success {
@@ -17,13 +17,18 @@
     background-color: orangered;
   }
 
-  &:hover {
-    box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.3);
+  &--disabled {
+    background-color: lightgray;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(&--disabled) {
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.3);
     transform: translateY(-1px)
   }
 
-  &:active {
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.3);
+  &:active:not(&--disabled) {
+    box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3);
     transform: translateY(0)
   }
 }

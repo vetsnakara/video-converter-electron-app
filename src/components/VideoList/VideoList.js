@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 import Video from '../Video'
 
@@ -11,6 +12,14 @@ const VideoList = ({
   videos,
   onRemove
 }) => {
+  const history = useHistory()
+
+  React.useEffect(() => {
+    if (videos.length === 0) {
+      history.push('/')
+    }
+  }, [videos])
+
   return (
     <div className={b()}>
       {videos.map(video => (

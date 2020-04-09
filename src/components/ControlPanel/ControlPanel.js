@@ -10,7 +10,9 @@ const b = bem('control-panel')
 
 const ControlPanel = ({
   onConvert,
-  onCancel
+  onCancel,
+  areAllCompleted,
+  areSomeNotFinished
 }) => {
   const history = useHistory()
 
@@ -22,14 +24,16 @@ const ControlPanel = ({
   return (
     <div className={b()}>
       <Button
-        color='#26a69a'
         onClick={onConvert}
+        disabled={areAllCompleted || areSomeNotFinished}
+        type='success'
       >
         Convert
       </Button>
       <Button
-        color='orangered'
         onClick={handleCancel}
+        disabled={areSomeNotFinished}
+        type='danger'
       >
         Cancel
       </Button>

@@ -2,8 +2,8 @@ export const SET_FORMAT = 'SET_FORMAT'
 export const ADD_VIDEOS = 'ADD_VIDEOS'
 export const REMOVE_VIDEO = 'REMOVE_VIDEO'
 export const REMOVE_ALL_VIDEOS = 'REMOVE_ALL_VIDEOS'
-export const CONVERT_PROGRESS = 'VIDEO_PROGRESS'
-export const CONVERT_COMPLETE = 'VIDEO_COMPLETE'
+export const CONVERT_PROGRESS = 'CONVERT_PROGRESS'
+export const CONVERT_COMPLETE = 'CONVERT_COMPLETE'
 
 const addVideos = videos => ({
   type: ADD_VIDEOS,

@@ -10,14 +10,22 @@ const Button = ({
   className,
   color,
   children,
+  type,
   ...rest
 }) => {
+  const { disabled } = rest
+
   return (
     <button
       style={{
         backgroundColor: color
       }}
-      className={cn(b(), className)}
+      className={
+        cn(b(null, {
+          [type]: type,
+          disabled
+        }), className)
+      }
       {...rest}
     >
       {children}

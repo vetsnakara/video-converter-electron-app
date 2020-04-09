@@ -20,7 +20,6 @@ const videosReducer = (state = initState, action) => {
           completed: false,
           outputDir: '',
           error: null
-
         }
 
         return state

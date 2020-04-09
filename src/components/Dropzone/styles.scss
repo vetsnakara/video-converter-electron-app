@@ -17,10 +17,12 @@
   }
 
   &--active {
-    background-color: rgba(#26a69a, .4);
+    color: #26a69a;
+    border-color:#26a69a;
   }
 
   &--reject {
-    background-color: rgba(orangered, .4);
+    color: orangered;
+    border-color: orangered;
   }
 }
